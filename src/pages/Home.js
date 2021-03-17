@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Countries from '../components/Countries';
 import Navigation from '../components/Navigation';
+import PropTypes from 'prop-types';
 
 const Home = (props) => {
   return (

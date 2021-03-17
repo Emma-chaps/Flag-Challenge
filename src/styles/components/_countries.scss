@@ -1,0 +1,20 @@
+.main-container {
+  &__form-container {
+    padding: 0 5rem 1rem 5rem;
+    &__form {
+      display: flex;
+      justify-content: space-between;
+      &--input {
+      }
+      &--select {
+      }
+    }
+  }
+  &__flag-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 5rem;
+  }
+}

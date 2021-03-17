@@ -21,7 +21,7 @@ const Country = ({ name, population, region, capital, flag }) => {
           {region}
         </div>
         <div className="card-container__details--capital">
-          <em>Capital :</em>
+          <em>Capital: </em>
           {capital}
         </div>
       </div>

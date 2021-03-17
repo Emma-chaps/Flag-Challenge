@@ -1,6 +1,11 @@
 .card-container {
+  padding-bottom: 1rem;
+  text-align: center;
+  box-sizing: border-box;
   &--img {
-    max-width: 150px;
+    object-fit: cover;
+    height: 125px;
+    width: 20vw;
   }
   &--title {
   }

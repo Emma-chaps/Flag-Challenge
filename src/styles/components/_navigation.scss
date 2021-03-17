@@ -1,0 +1,16 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  margin: 1rem 0;
+  padding: 0 5rem;
+  &--title {
+    padding-bottom: 0px;
+  }
+  &__btn {
+    margin-bottom: 1rem;
+    &--name {
+    }
+  }
+}
