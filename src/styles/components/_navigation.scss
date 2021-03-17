@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid rgb(190, 190, 190);
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
   padding: 0 5rem;
   font-size: 1.2em;
   &--title {
@@ -13,6 +13,7 @@
     margin-bottom: 1rem;
     font-size: 0.7em;
     font-weight: 800;
+    cursor: grab;
     &--name {
     }
   }

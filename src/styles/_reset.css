@@ -157,3 +157,7 @@ input,
 button {
   outline: 0;
 }
+
+img {
+  max-width: 100%;
+}

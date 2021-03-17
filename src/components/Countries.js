@@ -7,6 +7,7 @@ const Countries = (props) => {
   const [allCountries, setAllCountries] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
+  const [color, setColor] = useState('dark');
   const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
   const fetchDataByInput = async () => {
@@ -35,6 +36,7 @@ const Countries = (props) => {
   const handleChangeInput = (event) => {
     const { value } = event.target;
     setInputValue(value);
+    setSelectedRegion('');
   };
 
   const handleChangeSelect = (event) => {
@@ -70,7 +72,7 @@ const Countries = (props) => {
               onChange={handleChangeInput}
               value={inputValue}
             />
-            <i className="fas fa-search"></i>
+            <i className="fas fa-search search-icon"></i>
           </label>
           <label htmlFor="selectRegion">
             <select
@@ -81,7 +83,9 @@ const Countries = (props) => {
             >
               <option value="">Filter by Region</option>
               {regions.map((region) => (
-                <option value={region}>{region}</option>
+                <option key={region} value={region}>
+                  {region}
+                </option>
               ))}
             </select>
           </label>
