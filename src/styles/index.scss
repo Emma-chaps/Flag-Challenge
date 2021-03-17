@@ -1,21 +1,10 @@
 @use 'reset';
 @use 'vars';
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 @import './components/navigation.scss';
 @import './components/country.scss';
 @import './components/countries';
 
 body {
-  font-family: sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
-
-/* 
-  // or you can import your own font
-  @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf');
-  }
-
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-*/

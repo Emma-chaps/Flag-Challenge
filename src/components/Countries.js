@@ -6,23 +6,40 @@ import PropTypes from 'prop-types';
 const Countries = (props) => {
   const [allCountries, setAllCountries] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState('');
+  const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
-  const fetchData = async () => {
+  const fetchDataByInput = async () => {
     try {
       const res = await axios.get(`https://restcountries.eu/rest/v2/all`);
       const filteredResult = res.data.filter((item) =>
-        item.name.toLowerCase().includes(inputValue)
+        item.name.toLowerCase().includes(inputValue.toLowerCase())
       );
-      console.log(filteredResult);
       setAllCountries(filteredResult);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleChange = (event) => {
-    const value = event.target.value;
+  const fetchDataBySelect = async (region) => {
+    try {
+      const res = await axios.get(
+        `https://restcountries.eu/rest/v2/region/${region}`
+      );
+      setAllCountries(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleChangeInput = (event) => {
+    const { value } = event.target;
     setInputValue(value);
+  };
+
+  const handleChangeSelect = (event) => {
+    const { value } = event.target;
+    setSelectedRegion(value);
   };
 
   const handleSubmit = (event) => {
@@ -30,8 +47,11 @@ const Countries = (props) => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, [inputValue]);
+    if (selectedRegion !== '') {
+      fetchDataBySelect(selectedRegion);
+    }
+    fetchDataByInput();
+  }, [inputValue, selectedRegion]);
 
   return (
     <main className="main-container">
@@ -47,7 +67,7 @@ const Countries = (props) => {
               type="text"
               id="searchInput"
               placeholder="Search for a country..."
-              onChange={handleChange}
+              onChange={handleChangeInput}
               value={inputValue}
             />
             <i className="fas fa-search"></i>
@@ -57,13 +77,12 @@ const Countries = (props) => {
               name="region"
               id="selectRegion"
               className="main-container__form-container__form--select"
+              onChange={handleChangeSelect}
             >
               <option value="">Filter by Region</option>
-              <option value="africa">Africa</option>
-              <option value="america">America</option>
-              <option value="asia">Asia</option>
-              <option value="europe">Europe</option>
-              <option value="oceania">Oceania</option>
+              {regions.map((region) => (
+                <option value={region}>{region}</option>
+              ))}
             </select>
           </label>
         </form>
