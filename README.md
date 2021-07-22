@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Where in the world project](where-in-the-world-emma-project.surge.sh)
+- Live Site URL: [Where in the world project](http://where-in-the-world-emma-project.surge.sh)
 
 ## My process
 
