@@ -7,8 +7,8 @@ const menu = () => (
       <h1 className="navigation--title">Where in the world ?</h1>
     </NavLink>
     <div className="navigation__btn">
-      <i className="far fa-moon" />
-      <span className="navigation__btn--name"> Dark Mode</span>
+      {/* <i className="far fa-moon" />
+      <span className="navigation__btn--name"> Dark Mode</span> */}
     </div>
   </header>
 );
