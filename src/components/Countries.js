@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from 'src/api';
 import Country from './Country';
-import PropTypes from 'prop-types';
 
-const Countries = (props) => {
+const Countries = () => {
   const [allCountries, setAllCountries] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
@@ -12,7 +11,7 @@ const Countries = (props) => {
 
   const fetchDataByInput = async () => {
     try {
-      const res = await axios.get(`https://restcountries.eu/rest/v2/all`);
+      const res = await api.get('/all');
       const filteredResult = res.data.filter((item) =>
         item.name.toLowerCase().includes(inputValue.toLowerCase())
       );
@@ -24,9 +23,7 @@ const Countries = (props) => {
 
   const fetchDataBySelect = async (region) => {
     try {
-      const res = await axios.get(
-        `https://restcountries.eu/rest/v2/region/${region}`
-      );
+      const res = await api.get(`/region/${region}`);
       setAllCountries(res.data);
     } catch (error) {
       console.error(error);
@@ -59,7 +56,6 @@ const Countries = (props) => {
     <main className="main-container">
       <div className="main-container__form-container">
         <form
-          action=""
           className="main-container__form-container__form"
           onSubmit={handleSubmit}
         >
@@ -72,7 +68,7 @@ const Countries = (props) => {
               onChange={handleChangeInput}
               value={inputValue}
             />
-            <i className="fas fa-search search-icon"></i>
+            <i className="fas fa-search search-icon" />
           </label>
           <label htmlFor="selectRegion">
             <select
@@ -93,13 +89,11 @@ const Countries = (props) => {
       </div>
       <div className="main-container__flag-container">
         {allCountries.map((country) => (
-          <Country key={country.name} {...country} />
+          <Country key={country.alpha3Code} {...country} />
         ))}
       </div>
     </main>
   );
 };
-
-Countries.propTypes = {};
 
 export default Countries;

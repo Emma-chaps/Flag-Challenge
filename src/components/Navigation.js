@@ -1,17 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
-const menu = (props) => {
-  return (
-    <header className="navigation">
+const menu = () => (
+  <header className="navigation">
+    <NavLink to="/">
       <h1 className="navigation--title">Where in the world ?</h1>
-      <div className="navigation__btn">
-        <i className="far fa-moon"></i>
-        <span className="navigation__btn--name"> Dark Mode</span>
-      </div>
-    </header>
-  );
-};
+    </NavLink>
+    <div className="navigation__btn">
+      <i className="far fa-moon" />
+      <span className="navigation__btn--name"> Dark Mode</span>
+    </div>
+  </header>
+);
 
 menu.propTypes = {};
 

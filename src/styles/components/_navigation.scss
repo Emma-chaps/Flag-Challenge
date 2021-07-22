@@ -6,6 +6,12 @@
   margin: 1rem 0 0 0;
   padding: 0 5rem;
   font-size: 1.2em;
+  @media screen and (max-width: 1200px) {
+    padding: 0 3rem;
+  }
+  @media screen and (max-width: 490px) {
+    padding: 0 1rem;
+  }
   &--title {
     font-weight: 800;
   }
